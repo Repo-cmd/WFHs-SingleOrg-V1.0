@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" href="{% static "TimeSheet/Main.css" %}">
+    <link rel="stylesheet" href="{% static "TimeSheet/GroupAdmin.css" %}">
+    <title>User Details</title>
+</head>
+<body>
+    {% load static %}
+
+    <div class="mainheader">
+        <img src="{% static "TimeSheet/CompanyLOGO.png" %}" alt="WFH System" class="mainHeaderImage">
+    </div>
+
+    <dive> 
+       <nav class="headernav">
+            <ul class="navList">
+            <li class="navListItems"><a href="/TimeSheet/SuperAdmin/">Return</a></li>
+            <li class="navListItems"><a href="/TimeSheet/ShowData/">Main</a></li>
+            <li class="navListItems"><a href="/TimeSheet/SuperAdmin">My Groups</a></li>
+            <li class="logoutbutton"><a href="/logOut/">Logout</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <h1>User Details</h1>
+    <div class="tablecontainer">
+        <table style="width: 1300px;">
+            <thead>
+                <tr>
+                    <th>TimeStamp</th>
+                    <th>Event</th>
+                    <th>Time taken</th>
+                    <th>Approval status</th>
+                    <th>Action</th>
+                    <th>Comments</th>
+                </tr>
+            </thead>
+            <tbody>
+                </tr> 
+                {% for TimeStamp,Event,Timetaken,Approvalstatus,EventId,CommentsNumber in events %}
+                    <tr>
+                        <td>{{ TimeStamp }}</td>
+                        <td>{{ Event }}</td>
+                        <td>{{ Timetaken }}</td>
+                        <td>{{ Approvalstatus }}</td>
+                        <td><a href="{{UserId}}/ApproveEvent/{{EventId}}">Approve</a> || <a href="{{UserId}}/RejectEvent/{{EventId}}">Reject</a></td>
+                        <td><a href="{{UserId}}/ViewComments/{{EventId}}">View comments[{{CommentsNumber}}]</a></td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+
+    <div>
+        <footer><p>@Copyrights <a href="https://github.com/chamira-cmd">chamira-cmd</a>. All Rights Reserved</p> </footer>
+    </div>
+</body>
+</html>

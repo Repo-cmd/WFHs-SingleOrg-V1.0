@@ -1,0 +1,35 @@
+.logInFormHolder{
+    padding: 2%;
+    margin: 10% auto;
+    width: 300px;
+    border-radius: 25PX;
+    clear: both;
+    position: relative;
+    background-color: #d999bf;
+}
+
+input{
+  width: 100%;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  margin: 2%;
+  height: 30px;
+  border-radius: 7px;
+}
+
+label{
+  color: white;
+  width: 100%;
+  display: inline-block;
+  box-sizing: border-box;
+}
+
+button{
+  border-radius: 2px;
+  border: none;
+  margin-top: 4PX;
+  margin-left: 7PX;
+  padding: 5px;
+  background-color: #ccccff;
+}

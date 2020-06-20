@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" href="{% static "TimeSheet/Main.css" %}">
+    <link rel="stylesheet" href="{% static "TimeSheet/Comments.css" %}">
+    <title>Comments</title>
+</head>
+<body>
+    {% load static %}
+
+    <div class="mainheader">
+        <img src="{% static "TimeSheet/CompanyLOGO.png" %}" alt="WFH System" class="mainHeaderImage">
+    </div>
+
+    <dive> 
+       <nav class="headernav">
+            <ul class="navList">
+            <li class="navListItems"><a href="/TimeSheet/SuperAdmin/ShowGroupData/{{GPId}}">Return</a></li>
+            <li class="navListItems"><a href="/TimeSheet/ShowData/">Main</a></li>
+            <li class="navListItems"><a href="/TimeSheet/SuperAdmin">My Groups</a></li>
+            <li class="logoutbutton"><a href="/logOut/">Logout</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <h1>You are showing selected event comments</h1>
+    <div class="tablecontainer">
+        <table>
+            <thead>
+                <tr>
+                    <th>TimeStamp</th>
+                    <th>Event</th>
+                    <th>Time taken</th>
+                    <th>Approval status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    {% for item in event %}
+                        <td>{{ item }}</td>
+                    {% endfor %}
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="EventTablecontainer">
+        <table>
+            <thead>
+                <tr>
+                    <th>TimeStamp</th>
+                    <th>By(username)</th>
+                    <th>Comment</th>
+                </tr>
+            </thead>
+            <tbody>
+                </tr> 
+                {% for TimeStamp,RelatedUser,CommentText in Comments %}
+                    <tr>
+                        <td>{{ TimeStamp }}</td>
+                        <td>{{ RelatedUser }}</td>
+                        <td>{{ CommentText }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <div class="newCommentFormHolder">
+        <form method="POST" name="Commentform" action="/TimeSheet/SuperAdmin/ShowGroupData/{{GPId}}/ViewComments/{{eventId}}">
+            {% csrf_token %}
+            <label for="ucomment">Comment</label>
+            <input type="text" placeholder=" input Comment" name="Acomment" required>
+            <button type="submit">ADD</button>
+        </form>
+    </div>
+
+
+    <div>
+        <footer><p>@Copyrights <a href="https://github.com/chamira-cmd">chamira-cmd</a>. All Rights Reserved</p> </footer>
+    </div>
+</body>
+</html>

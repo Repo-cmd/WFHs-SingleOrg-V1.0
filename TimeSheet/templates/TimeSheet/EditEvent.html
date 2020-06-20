@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" href="{% static "TimeSheet/Main.css" %}">
+    <link rel="stylesheet" href="{% static "TimeSheet/EditEvent.css" %}">
+    <style>footer{position: fixed;}</style>
+    <title>Edit Event</title>
+</head>
+<body>
+    {% load static %}
+
+    <div class="mainheader">
+        <img src="{% static "TimeSheet/CompanyLOGO.png" %}" alt="WFH System" class="mainHeaderImage">
+    </div>
+
+    <dive> 
+       <nav class="headernav">
+            <ul class="navList">
+            <li class="navListItems"><a href="/TimeSheet/ShowData/">Main</a></li>
+
+            <li class="logoutbutton"><a href="/logOut/">Logout</a></li>
+            </ul>
+        </nav>
+    </div>
+    <h1>Warning! You are about ot edit an event</h1>
+    <div class="EditEventFormHolder">
+        <form method="POST" name="EditEventform" action="/TimeSheet/ShowData/EditEvent/{{id}}">
+            {% csrf_token %}
+            <label for="uevent">Event Text</label>
+            <input type="text" placeholder=" {{txt}}" name="uevent" required>
+            <label for="utime">Time Taken</label>
+            <input type="number" placeholder=" {{time}}" step="0.1" min="0" name="utime" required>
+            <button type="submit">Save</button>
+        </form>
+    </div>
+
+
+    <div>
+        <footer><p>@Copyrights <a href="https://github.com/chamira-cmd">chamira-cmd</a>. All Rights Reserved</p> </footer>
+    </div>
+</body>
+</html>

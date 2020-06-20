@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" href="{% static "TimeSheet/Main.css" %}">
+    <link rel="stylesheet" href="{% static "TimeSheet/login.css" %}">
+    <style>footer{position: fixed;}</style>
+    <title>Welcome| login</title>
+</head>
+<body>
+    {% load static %}
+    <div class="mainheader">
+        <img src="{% static "TimeSheet/CompanyLOGO.png" %}" alt="WFH System" class="mainHeaderImage">
+    </div>
+
+    <div class="logInFormHolder">
+        <form method="POST" name="loginform" action="/TimeSheet/">
+            {% csrf_token %}
+            <label for="uname">username</label>
+            <input type="text" placeholder=" input username" name="uname" required>
+            <label for="upass">Password</label>
+            <input type="password" placeholder=" input password" name="upass" required>
+            <button type="submit">login</button>
+        </form>
+    </div>
+
+    
+    <div>
+        <footer><p>@Copyrights <a href="https://github.com/chamira-cmd">chamira-cmd</a>. All Rights Reserved</p> </footer>
+    </div>
+</body>
+</html>

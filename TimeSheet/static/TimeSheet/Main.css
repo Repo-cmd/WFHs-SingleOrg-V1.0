@@ -1,0 +1,27 @@
+.mainheader {
+    background-color: white;
+    width: 100%;
+    color: royalblue;
+    position: relative;
+    clear: both;
+    margin-top: 0%;
+    align-content: center;
+}
+
+.mainHeaderImage {
+    width: 20%;
+    position: relative;
+    clear: both;
+    left: 40%;
+}
+
+footer {
+    position: relative;
+    bottom: 0px;
+    text-align: center;
+    width: 100%;
+    color: royalblue;
+    clear: both;
+    margin-top: -100%;
+    padding-top: 10px;
+}
