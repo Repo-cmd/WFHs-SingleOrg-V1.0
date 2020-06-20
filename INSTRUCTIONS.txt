@@ -1,0 +1,13 @@
+If this is your first time using a django app do the following:
+
+1- visit [https://www.python.org/] and install latest python version
+2- run install django file in this folder (windows only)
+3- run runserver file (windows only)
+4- go to [http://127.0.0.1:8000/admin/] use [user:admin  pass:admin] to add users, groups and permissions
+5- go to [http://127.0.0.1:8000/TimeSheet/] to login and start using the app
+
+Preset users: [username:CEO  pass:x#$ELD_g.ufF25j] [username:HrAdmin  pass:6aiAzJpFg#!BZPV]
+
+Permissions:
+1- TimeSheet|extra permissions|can see all groups details without being part of them (thats a super admin permission inside the system which doesn't require the user to be part of any groups)
+2- TimeSheet|extra permissions|can see his respective group(s) details (sets the user who has it as an admin to all the groups he belongs to)
